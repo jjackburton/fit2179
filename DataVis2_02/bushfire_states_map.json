@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+    "title": "Median house price per suburb (2010-2020)",
+    "width": 800,
+    "height": 500,
+    "params": [
+        {
+            "name": "Season_selection",
+            "value": 2021,
+            "bind": {
+                "input": "range",
+                "min": 1617,
+                "max": 2021,
+                "step": 101,
+                "name": "Fire Season: "
+            }
+        }
+    ],
+    "projection": {
+        "type": "equirectangular"
+    },
+    "layer": [
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/jjackburton/fit2179/refs/heads/main/STE_2016_AUST.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "Aus_States"
+                }
+            },
+            "transform": [
+                {
+                    "calculate": "'Data is not available in ' + datum.properties.STE_NAME16",
+                    "as": "note"
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "fill": "#ddd",
+                "stroke": "white",
+                "strokeWidth": 1
+            },
+            "encoding": {
+                "tooltip": {
+                    "field": "note"
+                }
+            }
+        },
+    {
+        "data": {
+            "url": "https://raw.githubusercontent.com/jjackburton/fit2179/refs/heads/main/total_unplannedburns.csv",
+            "format": {"type": "csv"}
+        },
+        "transform": [
+            {
+                "lookup": "State",
+                "from": {
+                    "data": {
+                        "url": "https://raw.githubusercontent.com/jjackburton/fit2179/refs/heads/main/STE_2016_AUST.json",
+                        "format": {
+                        "type": "topojson",
+                        "feature": "Aus_States"
+                    }
+                    },
+                    "key": "properties.STE_NAME16"
+                },
+                "as": "geo"
+            },
+            {"filter": "datum.Season == Season_selection"}
+        ],
+
+        "mark": {
+            "type": "geoshape",
+            "stroke": "#fff",
+            "strokeWidth": 0.5
+        },
+        "encoding": {
+            "shape": {
+                "field": "geo",
+                "type": "geojson"
+            },
+            "color": {
+                "field": "Total_Burns",
+                "type": "quantitative",
+                "title": "Total Burns",
+                "scale": {
+                    "scheme": "reds"
+                },
+                "legend": {
+                    "format": "d"
+                }
+            },
+            "tooltip": [
+                {"field": "State", "type": "nominal", "title": "State"},
+                {"field": "Total_Burns", "type": "quantitative", "title": "Total Burns"},
+                {"field": "Season", "type": "quantitative", "title": "Season"}
+            ]
+        }
+    }
+    ],
+"config": {}
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "data/STE_2016_AUST.json",
+    "format": {
+      "type": "topojson",
+      "feature": "Aus_States"
+    }
+  },
+  "transform": [{
+    "lookup": "State",
+    "from": {
+      "data": {
+        "url": "data/total_unplannedburns.csv"
+      },
+      "key": "State",
+      "fields": ["Total_Burns"]
+    }
+  }],
+  "projection": {
+    "type": "mercator"
+  },
+  "mark": "geoshape",
+  "encoding": {
+    "color": {
+      "field": "Total_Burns",
+      "type": "quantitative"
+    }
+  }
+}
