@@ -31,13 +31,12 @@
               "type": "quantitative",
               "title": "Brightness",
               "scale": {
-                "type": "threshold",
+                "type": "linear",
                 "domain": [320,504.4],
                 "range": ["#fdbe85","#7f0000"]
               }
             },
             "tooltip": [
-              {"field": "acq_time", "type": "temporal"},
               {"field": "brightness", "type": "quantitative"},
               {"field": "acq_date", "type": "temporal"}
             ]
@@ -63,6 +62,7 @@
         "x": {
           "field": "acq_date",
           "type":"temporal",
+          "scale": {"domain": ["2019-08-01", "2019-09-31"]},
           "axis": {"title": "", "format": "%b %d"}
         },
         "y": {
