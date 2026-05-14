@@ -8,8 +8,9 @@
       "width": 800,
       "height": 400,
       "title": "Fires visible from space 2019",
-      "projection": {"type": "mercator","scale": 700, "center": [134, -30]},
-      "layer": [
+        "projection": {
+            "type": "equirectangular"},      
+        "layer": [
         {
           "data": {
             "url": "https://raw.githubusercontent.com/jjackburton/fit2179/refs/heads/main/STE_2016_AUST.json",
