@@ -62,7 +62,6 @@
         "x": {
           "field": "acq_date",
           "type":"temporal",
-          "scale": {"domain": ["2019-08-01", "2019-09-31"]},
           "axis": {"title": "", "format": "%b %d"}
         },
         "y": {
