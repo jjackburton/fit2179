@@ -42,7 +42,7 @@
             ]
           },
           "layer": [
-            {"mark": {"type": "circle", "opacity": 0.4, "size": 15}}
+            {"mark": {"type": "circle", "opacity": 0.4, "size": 25}}
           ]
         }
       ]
@@ -67,7 +67,8 @@
         "y": {
           "aggregate": "count",
           "axis": {"tickCount": 3, "grid": false},
-          "title": "Count"
+          "title": "Count",
+            "scale": {"domain": [0, 200]}
         }
       }
     }
