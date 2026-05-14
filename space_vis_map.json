@@ -8,7 +8,7 @@
       "width": 800,
       "height": 400,
       "title": "Fires visible from space 2019",
-      "projection": {"type": "mercator","scale": 700, "center": [134, -28]},
+      "projection": {"type": "mercator","scale": 700, "center": [134, -30]},
       "layer": [
         {
           "data": {
@@ -62,33 +62,13 @@
         "x": {
           "field": "acq_date",
           "type":"temporal",
-          "axis": {"title": "", "format": "%Y"}
+          "axis": {"title": "", "format": "%b %d"}
         },
         "y": {
           "aggregate": "count",
           "axis": {"tickCount": 3, "grid": false},
           "title": "Count"
         }
-      }
-    },
-    {
-      "width": 800,
-      "transform": [
-        {
-          "bin": {"step": 0.5, "extent": [5, 7]},
-          "field": "brightness",
-          "as": "Brightness"
-        }
-      ],
-      "mark": "area",
-      "encoding": {
-        "x": {
-          "field": "acq_date",
-          "type": "temporal",
-          "scale": {"domain": {"param": "time_brush"}},
-          "axis": {"title": "", "tickCount": 5, "grid": false}
-        },
-        "y": {"aggregate": "count", "title": "Count of Fires"}
       }
     }
   ],
