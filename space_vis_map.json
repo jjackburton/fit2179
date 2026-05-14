@@ -8,7 +8,7 @@
       "width": 800,
       "height": 400,
       "title": "Fires visible from space 2019",
-      "projection": {"type": "mercator"},
+      "projection": {"type": "mercator", "center": [134, -28],"scale": 700},
       "layer": [
         {
           "data": {
@@ -42,33 +42,7 @@
             ]
           },
           "layer": [
-            {"mark": {"type": "circle", "opacity": 0.4, "size": 15}},
-            {
-              "transform": [
-                {
-                  "window": [{"op": "rank", "as": "ranking"}],
-                  "sort": [{"field": "brightness", "order": "descending"}]
-                },
-                {"filter": "datum.ranking == 1"},
-                {
-                  "calculate": "'The Brightest Visible Fire from the selected period was ' + datum['brightness']",
-                  "as": "text_annotation_raw"
-                },
-                {
-                  "calculate": "split(datum.text_annotation_raw, ';')",
-                  "as": "text_annotation"
-                }
-              ],
-              "mark": {
-                "type": "text",
-                "align": "right",
-                "dx": -8,
-                "dy": -8,
-                "baseline": "middle",
-                "fontStyle": "italic"
-              },
-              "encoding": {"text": {"field": "text_annotation"}}
-            }
+            {"mark": {"type": "circle", "opacity": 0.4, "size": 15}}
           ]
         }
       ]
