@@ -3,6 +3,12 @@
   "data": {
     "url": "data/au_fires_space_100.csv"
   },
+  "transform": [
+  {
+    "calculate": "datetime(split(datum.acq_date, '/')[2], split(datum.acq_date, '/')[1]-1, split(datum.acq_date, '/')[0])",
+    "as": "acq_date_parsed"
+  }
+],
   "vconcat": [
     {
       "width": 800,
@@ -38,7 +44,7 @@
             },
             "tooltip": [
               {"field": "brightness", "type": "quantitative"},
-              {"field": "acq_date", "type": "temporal"}
+              {"field": "acq_date_parsed", "type": "temporal"}
             ]
           },
           "layer": [
@@ -60,7 +66,7 @@
       ],
       "encoding": {
         "x": {
-          "field": "acq_date",
+          "field": "acq_date_parsed",
           "type":"temporal",
           "axis": {"title": "", "format": "%b %d"}
         },
