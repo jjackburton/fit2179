@@ -12,7 +12,7 @@
       "layer": [
         {
           "data": {
-            "url": "data/STE_2016_AUST.json",
+            "url": "https://raw.githubusercontent.com/jjackburton/fit2179/refs/heads/main/STE_2016_AUST.json",
             "format": {
               "type": "topojson",
               "feature": "Aus_States"
