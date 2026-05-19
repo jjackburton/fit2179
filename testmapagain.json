@@ -1,32 +1,60 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 500,
-  "height": 300,
-  "data": {
-    "url": "data/STE_2016_AUST.json",
-    "format": {
-      "type": "topojson",
-      "feature": "Aus_States"
+              "transform": [
+                {
+                  "window": [{"op": "rank", "as": "ranking"}],
+                  "sort": [{"field": "brightness", "order": "descending"}]
+                },
+                {"filter": "datum.ranking == 1"},
+                {
+                  "calculate": "'The Brightest Visible Fire from the selected period was ' + datum['brightness']",
+                  "as": "text_annotation_raw"
+                },
+                {
+                  "calculate": "split(datum.text_annotation_raw, ';')",
+                  "as": "text_annotation"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "right",
+                "dx": -8,
+                "dy": -8,
+                "baseline": "middle",
+                "fontStyle": "italic"
+              },
+              "encoding": {"text": {"field": "text_annotation"}}
+            }
+-------------
+
+             {
+      "width": 800,
+      "transform": [
+        {
+          "bin": {"step": 0.5, "extent": [5, 7]},
+          "field": "brightness",
+          "as": "Brightness"
+        }
+      ],
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "acq_date",
+          "type": "temporal",
+          "scale": {"domain": {"param": "time_brush"}},
+          "axis": {"title": "", "tickCount": 5, "grid": false}
+        },
+        "y": {"aggregate": "count", "title": "Count of Fires"}
+      }
     }
-  },
-  "transform": [{
-    "lookup": "State",
-    "from": {
-      "data": {
-        "url": "data/total_unplannedburns.csv"
-      },
-      "key": "State",
-      "fields": ["Total_Burns"]
-    }
-  }],
-  "projection": {
-    "type": "mercator"
-  },
-  "mark": "geoshape",
-  "encoding": {
-    "color": {
-      "field": "Total_Burns",
-      "type": "quantitative"
+
+    {
+    "mark" : {"type": "text"},
+    "encoding":{
+      "theta":{"field": "count", "type": "quantitative"},
+      "text":{
+        "condition":{"test": "datum.country == 'Australia'",
+        "field":"percentage", "type": "nominal"},
+        "value": ""
+      }
     }
   }
-}

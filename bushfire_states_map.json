@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-    "title": "Median house price per suburb (2010-2020)",
+    "title": "Total Bushfires by State per fire season",
     "width": 800,
     "height": 500,
     "params": [
@@ -8,12 +8,11 @@
             "name": "Season_selection",
             "value": 2021,
             "bind": {
-                "input": "range",
-                "min": 1617,
-                "max": 2021,
-                "step": 101,
+                "input": "select",
+                "options": [1617, 1718, 1819, 1920, 2021],
+                "labels": ["2016-17", "2017-18", "2018-19", "2019-20", "2020-21"],
                 "name": "Fire Season: "
-            }
+                }
         }
     ],
     "projection": {

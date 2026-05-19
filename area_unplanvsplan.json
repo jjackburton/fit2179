@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Planned vs Unplanned Fires (2016-2021)",
+  "title": "Planned vs Unplanned Fires (2016-2021)",
+  "data": {"url": "data/seasonal_plan_unplan.csv"},
+  "width": 400,
+  "transform": [
+    {"fold": ["Planned", "Unplanned"], "as": ["series", "count"]}
+  ],
+  "mark": {
+    "type": "line",
+    "point": true
+  },
+  "encoding": {
+    "x": {"field": "Season", "type": "ordinal"},
+    "y": {"field": "count", "type": "quantitative"},
+    "color": {"field": "series", "type": "nominal"}
+  }
+}

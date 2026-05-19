@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "A simple donut chart with embedded data.",
+  "title":"NASA at risk events", 
+  "data": {"url":"data/multi_region_dataset.csv" },
+
+  "transform": [
+  {"aggregate": [{"op": "count", "as": "count"}], "groupby": ["country"]},
+  {"filter": "datum.count >= 475"},
+  {"calculate": "format(datum.count / 6122 * 100, '.2f')", "as": "percentage"}
+],
+"layer": [
+{"mark": {"type": "arc"},
+  "encoding": {
+    "theta": {"field": "count", "type": "quantitative"},
+    "color": {"field": "country", "type": "nominal"},
+    "tooltip": [
+    {"field": "country", "type": "nominal", "title": "Country"},
+    {"field": "count", "type": "quantitative", "title": "Fire Count"},
+    {"field": "percentage", "type": "quantitative", "title": "Percentage", "format": ".1f"}
+    ]
+  }}
+]
+}

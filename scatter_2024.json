@@ -1,0 +1,43 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Total Fires vs Avergae Area 2025",
+  "title":"Total Fires vs Avergae Area 2025",
+  "data": {"url": "data/Wildfire_Data.csv"},
+  "mark": {"type": "point", "size": 100},
+  "width": "container",
+  "transform": [
+    {"filter": "datum.Code != null && datum.Code != '' && datum.Code != 'OWID_WRL'"},
+    {"filter": "datum.Year == '2025'"}
+  ],
+  "encoding": {
+    "opacity": {
+      "condition": {
+        "test": "test(regexp(search_input,'i'),datum.Entity)",
+        "value": 0.8
+      },
+      "value": 0.3
+    },
+    "color": {
+      "condition": {
+        "test": "test(regexp(search_input,'i'),datum.Entity)",
+        "value": "red"
+      },
+      "value": "gray"
+    },
+    "tooltip": [{"field": "Entity", "type": "nominal"},
+                {"field": "Year", "type":"nominal"}],
+    "x": {"field": "numberFire", "type": "quantitative", "title": "Total Number of Fires (2025)"},
+    "y": {"field": "avgArea", "type": "quantitative", "title": "Average area burnt per (hec)"}
+  },
+  "params": [
+    {
+      "name": "search_input",
+      "bind": {
+        "input": "search",
+        "placeholder": "Country/Region",
+        "name": "Country: "
+      },
+      "value": "Australia"
+    }
+  ]
+}

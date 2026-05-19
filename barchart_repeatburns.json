@@ -1,0 +1,12 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Times each forest has burnt",
+  "title":"Repeated Burn Forests",
+  "data": {"url": "data/repeatburns_data.csv"},
+  "mark": "bar",
+  "width": "container",
+  "encoding": {
+    "x": {"field": "Times", "type": "nominal", "axis": {"labelAngle": 0}, "title":"Times forest has burned"},
+    "y": {"field": "Amount", "type": "quantitative"}
+  }
+}

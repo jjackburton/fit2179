@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Forest Types by Year",
+  "data": {"url": "data/annual_bf_area_types.csv"},
+  "transform": [
+    {
+    "fold":["Temperate_forest_wildfires","Temperate_forest_hazard_reduction","Tropical_savanna_woodlands","Arid_semi_arid_rangelands"],
+    "as":["Forest_Type", "Number"]}
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "timeUnit": "year",
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field":"Number",
+      "type": "quantitative",
+      "title": "Amount"
+    },
+    "color": {
+      "field": "Forest_Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Temperate_forest_wildfires","Temperate_forest_hazard_reduction","Tropical_savanna_woodlands","Arid_semi_arid_rangelands"],
+        "range": ["#e7ba52", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]
+      },
+      "legend": {
+    "labelExpr": "{\"Temperate_forest_wildfires\": \"Temperate Forest\", \"Temperate_forest_hazard_reduction\": \"Temperate Forest (Reduction)\", \"Tropical_savanna_woodlands\": \"Savanna Woodlands\", \"Arid_semi_arid_rangelands\": \"Arid Rangelands\"}[datum.label]"
+  },
+      "title": "Forest type"
+    }
+  }
+}

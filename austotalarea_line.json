@@ -1,0 +1,15 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Total Area Burnt per year (2013-2022)",
+  "title":"Area Burnt (2013-2022)",
+  "width":"container",
+  "data": {"url": "data/ausareaperyear.csv"},
+  "mark": "line",
+"transform": [
+    {"filter": {"field": "YEAR", "range": [2013, 2022]}}
+  ],
+  "encoding": {
+    "x": {"field": "YEAR", "type": "quantitative", "title": "Year"},
+    "y": {"field": "AREA", "type": "quantitative", "title": "Total Area (ha)"}
+  }
+}
