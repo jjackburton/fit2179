@@ -12,7 +12,7 @@
 ],
   "vconcat": [
     {
-      "width": 800,
+      "width": "container",
       "height": 400,
       "title": "Fires visible from space 2019",
         "projection": {
@@ -45,8 +45,8 @@
               }
             },
             "tooltip": [
-              {"field": "brightness", "type": "quantitative"},
-              {"field": "acq_date_parsed", "type": "temporal"}
+              {"field": "brightness", "type": "quantitative", "title":"Brightness of Fire: "},
+              {"field": "acq_date_parsed", "type": "temporal", "title":"Date of Detection: "}
             ]
           },
           "layer": [
@@ -82,7 +82,7 @@
       ]
     },
     {
-      "width": 800,
+      "width": "container",
       "height": 60,
       "mark": "line",
       "title": "Use this line chart to filter out the data based on time",

@@ -7,6 +7,7 @@
   "width": "container",
   "encoding": {
     "x": {"field": "Times", "type": "nominal", "axis": {"labelAngle": 0}, "title":"Times forest has burned"},
-    "y": {"field": "Amount", "type": "quantitative"}
+    "y": {"field": "Amount", "type": "quantitative"},
+    "tooltip": [{"field": "Amount", "type": "quantitative", "title":"Count: "}]
   }
 }

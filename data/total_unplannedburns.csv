@@ -1,41 +1,41 @@
-State,Season,Total_Burns
-Australian Capital Territory,1617,1
-Australian Capital Territory,1718,9
-Australian Capital Territory,1819,13
-Australian Capital Territory,1920,38
-Australian Capital Territory,2021,0
-New South Wales,1617,472
-New South Wales,1718,141
-New South Wales,1819,517
-New South Wales,1920,924
-New South Wales,2021,203
-Northern Territory,1617,3384
-Northern Territory,1718,3566
-Northern Territory,1819,4144
-Northern Territory,1920,4213
-Northern Territory,2021,3626
-Queensland,1617,4473
-Queensland,1718,4053
-Queensland,1819,3979
-Queensland,1920,4187
-Queensland,2021,3343
-South Australia,1617,28
-South Australia,1718,41
-South Australia,1819,40
-South Australia,1920,172
-South Australia,2021,83
-Tasmania,1617,72
-Tasmania,1718,76
-Tasmania,1819,240
-Tasmania,1920,153
-Tasmania,2021,38
-Victoria,1617,64
-Victoria,1718,123
-Victoria,1819,164
-Victoria,1920,334
-Victoria,2021,40
-Western Australia,1617,375
-Western Australia,1718,376
-Western Australia,1819,406
-Western Australia,1920,407
-Western Australia,2021,228
+State,Season,Total_Burns,Area
+Australian Capital Territory,1617,1,2358
+Australian Capital Territory,1718,9,2358
+Australian Capital Territory,1819,13,2358
+Australian Capital Territory,1920,38,2358
+Australian Capital Territory,2021,0,2358
+New South Wales,1617,472,801137
+New South Wales,1718,141,801137
+New South Wales,1819,517,801137
+New South Wales,1920,924,801137
+New South Wales,2021,203,801137
+Northern Territory,1617,3384,1334404
+Northern Territory,1718,3566,1334404
+Northern Territory,1819,4144,1334404
+Northern Territory,1920,4213,1334404
+Northern Territory,2021,3626,1334404
+Queensland,1617,4473,1723030
+Queensland,1718,4053,1723030
+Queensland,1819,3979,1723030
+Queensland,1920,4187,1723030
+Queensland,2021,3343,1723030
+South Australia,1617,28,979651
+South Australia,1718,41,979651
+South Australia,1819,40,979651
+South Australia,1920,172,979651
+South Australia,2021,83,979651
+Tasmania,1617,72,64519
+Tasmania,1718,76,64519
+Tasmania,1819,240,64519
+Tasmania,1920,153,64519
+Tasmania,2021,38,64519
+Victoria,1617,64,227038
+Victoria,1718,123,227038
+Victoria,1819,164,227038
+Victoria,1920,334,227038
+Victoria,2021,40,227038
+Western Australia,1617,375,2523924	
+Western Australia,1718,376,2523924	
+Western Australia,1819,406,2523924
+Western Australia,1920,407,2523924
+Western Australia,2021,228,2523924

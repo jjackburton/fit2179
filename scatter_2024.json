@@ -24,8 +24,10 @@
       },
       "value": "gray"
     },
-    "tooltip": [{"field": "Entity", "type": "nominal"},
-                {"field": "Year", "type":"nominal"}],
+    "tooltip": [{"field": "Entity", "type": "nominal", "title":"Country: "},
+                {"field": "numberFire", "type":"quantitative", "title": "Total Number of Fires: "},
+                {"field": "avgArea", "type":"quantitative", "title": "Average Area per Fire: "}
+              ],
     "x": {"field": "numberFire", "type": "quantitative", "title": "Total Number of Fires (2025)"},
     "y": {"field": "avgArea", "type": "quantitative", "title": "Average area burnt per (hec)"}
   },

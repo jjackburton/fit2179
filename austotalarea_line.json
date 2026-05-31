@@ -4,12 +4,14 @@
   "title":"Area Burnt (2013-2022)",
   "width":"container",
   "data": {"url": "data/ausareaperyear.csv"},
-  "mark": "line",
+  "mark": {"type":"line", "point":true},
 "transform": [
-    {"filter": {"field": "YEAR", "range": [2013, 2022]}}
+    {"filter": {"field": "YEAR", "range": [2013, 2022]}},
+    {"calculate": "datum.AREA + ' hectares'", "as": "Area_label"}
   ],
   "encoding": {
-    "x": {"field": "YEAR", "type": "quantitative", "title": "Year"},
-    "y": {"field": "AREA", "type": "quantitative", "title": "Total Area (ha)"}
+    "x": {"field": "YEAR", "type": "quantitative", "title": "Year","axis": {"format": "d"}},
+    "y": {"field": "AREA", "type": "quantitative", "title": "Total Area (ha)"},
+    "tooltip": [{"field": "Area_label", "type": "nominal", "title":"Total Area: "}]
   }
 }

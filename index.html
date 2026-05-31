@@ -5,9 +5,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
-  integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,77 +19,58 @@
 
 
 </head>
+
+
+
+
 <body>
-  <div class="page">
+
+
+
 
     <!-- Ttile Section -->
-    <div class="pure-g" id="intro">
-      <div class="pure-u-1-1">
+    <div class="container" id="intro">
         <h1>The Bushfire Crisis In <span class="highlight">Australia</span> </h1>
-        <p>Bushfires in <span class="highlight">Australia</span> have always been a serious issue, the so called "Lucky Country" has been victim to many of the worst
-           fire periods that any country on earth has experienced, earning names such as the Black Summer in 2019, 
-           and being known as the Country on Fire at times. But what is the true reason behind why we are always on fire? Is there an answer? 
-           Is there a comparison to the rest of the globe? And finally, are we getting better? </p>
+        <p class="description">Bushfires in <span class="highlight">Australia</span> have always been a serious issue. The so-called "Lucky Country" has endured some of the worst fire periods experienced by any nation on earth, earning names such as The Black Summer in 2019 and being known at times as the Country on Fire. But what is the true reason behind why <span class="highlight">Australia</span> burns so frequently? Is there a pattern? How does it compare to the rest of the globe? And most importantly, are we getting better? </p>
       </div>
-    </div>
     <!-- end sec -->
 
     <!-- Sub section title and description -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
+     <div class="section">
+    <div class="container">
         <h2>The <span class="highlight">Australian</span> Impact & The Black Summer</h2>
-        <p>Just how intense has the previous fire seasons been in <span class="highlight">Australia</span> - and how bad was the Black Summer.</p>
+        <p><span class="highlight">Australia</span> is known globally for its devastating fires, but just how bad are they, and where do they hit hardest? The following explores when <span class="highlight">Australia</span> has experienced the most destruction, and more specifically, where.</p>
       </div>
-    </div>
     <!-- end sec -->
 
     <!-- Large with text - Choropleth Map -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
+    <div class="container">
         <div id="map_uncontrolled_fires" class="vis-container"></div>
-        <p id="graphtext">This map indicates the total burns per state (not yet normalised - still to do) across the last 5 fire seasons (summers). The information shows where in <span class="highlight">Australia</span> experiences the most burns, noticeably being the more northern states closer to the equator, NT and QLD. The peak of which being in 2016-17 for Queensland and 2019-20, The Black Summer, for the NT. There is a notable occurrence in 2020-21 in the ACT where a total of 0 burns where achieved, this drop off helps to identify the management taken after it achieved its personal peak in the Black Summer.</p>
+        <p id="graphtext">This choropleth map shows the total number of burns per state, normalised per 10,000 square kilometres, across the five summer seasons from 2016 to 2021. The data reveals which parts of <span class="highlight">Australia</span> are most affected, typically those closer to the equator. The map also highlights the dramatically elevated figures during the 2019-20 season, widely known as Black Summer. Due to normalisation by area, the <span style="color: mediumseagreen">ACT</span> appears disproportionately high, indicating that relative to its size it experiences a significant number of burns.</p>
       </div>
-    </div>
+
+      <div class="container">
+        <div id="bumpchart" class="vis-container"></div>
+        <p id="graphtext">The bump chart compares raw total burn counts, not normalised, to show which state leads each season by volume. It is clear that the <span style="color: red;">Northern Territory</span> and <span style="color: blue;">Queensland</span> are the most heavily impacted, while the <span style="color: mediumseagreen;">Australian Capital Territory</span> consistently records the fewest burns.</p>
+      </div>
     <!-- end sec  -->
 
-    <!-- 4 small col section  -->
-    <div class="pure-g">
+<div class="container-row">
+  <div class="container">
+    <div id="line_area" class="vis-container"></div>
+    <p id="graphtext">This line chart shows the total area burnt across <span class="highlight">Australia</span> each year. There is a clear peak in 2019 at approximately 38 million hectares, followed by a sharp decline to around 19 million in 2020. This drop reflects the increased investment in recovery and fire management techniques implemented in the aftermath of Black Summer.</p>
+  </div>
 
-      <div class="pure-u-1-3">
-        <div id= "line_area" class="vis-container">
-          </div>
-        </div>
-
-        <div class="pure-u-2-3">
-        <div class="description description-left-mid">
-          <p id="graphtext">The line chart represents the total area burnt throughout each year across the entirety of <span class="highlight">Australia.</span> There is a clear drop off from 2019 (approx 36M) to 2020 (approx 19M), eluding to the recovery techniques taken after such a devastating season.</p>
-          </div>
-        </div>
-
-        <!-- end sec  -->
-
-            <!-- 4 small col section  -->
-    <div class="pure-g">
-
-      <div class="pure-u-2-3">
-        <div class="description description-left-mid">
-          <p id="graphtext">Filler Text: The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo.</p>
-          </div>
-        </div>
-
-        <div class="pure-u-1-3">
-        <div id= "" class="vis-container"></div>
-        <p>Graph goes here</p>
-        </div>
-
-        <!-- end sec  -->
-
+  <div class="container">
+    <div id="group" class="vis-container"></div>
+<p id="graphtext">This grouped bar chart shows the number of forest areas burnt across each fire season from 2016 to 2021, broken down by land type. <span style="color: #c0390b;">Native Forest</span> consistently dominates across all seasons, peaking in 2019-20 during Black Summer with 17,033 recorded burns. <span style="color: #2ecc71;">Commercial Plantation</span>, <span style="color: #4a90d9;">Non Forest</span> and <span style="color: #f39c12;">Other Forest</span> remain comparatively minimal throughout, highlighting that <span class="highlight">Australia's</span> native bushland bears the overwhelming burden of fire damage.</p></div>
+</div>
     <!-- Large with text - DD Map -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
+    <div class="container">
         <div id="map_fires_space" class="vis-container"></div>
-        <p id="graphtext">This map highlights the bushfires identified as visible from space with 100% certainty, with a colour scale of how bright they were - leading to a more intensely burning fire. The information helps to identify what areas of <span class="highlight">Australia</span> experienced more intense fires across the peak fire season in 2019. The time brush included helps to pinpoint what days of the time period experienced the most devastating results and help to filter the map to show where these locations were.</p>
+        <p id="graphtext">This map highlights bushfires detected from space with 100% confidence, coloured by brightness as a proxy for fire intensity. It identifies which areas of <span class="highlight">Australia</span> experienced the most intense fires during the peak 2019 fire season. A concentration of fires is visible across the northern regions and eastern coastline, which aligns with the state-level data shown above. The time brush allows the viewer to filter by date, pinpointing which days saw the most severe activity and where those fires were located.</p>
       </div>
+
     </div>
     <!-- end sec  -->
 
@@ -100,64 +82,35 @@
 
 
     <!-- Sub section title and description -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
+     <div class="section">
+    <div class="container">
         <h2>Fire Area Types</h2>
-        <p>Are there certain types of forets or area that are more likely to have a fire?</p>
+        <p>We know <span class="highlight">Australia</span> burns frequently, but is there a pattern to what burns? The following explores which land types are most vulnerable and whether repeat burning is a growing concern.</p>
       </div>
-    </div>
+    
     <!-- end sec -->
 
 
     <!-- Large with text - Stacked Bar -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
+    <div class="container">
         <div id="forest_type_bar" class="vis-container"></div>
-        <p id="graphtext">The stacked bar chart represents how many fires occur in each type of forest/landtype in <span class="highlight">Australia</span> per year. Highlighting that since roughly 1996 there has been a clear lead by arid rangelands and tropical woodlands comparred to actual temperate forest. Matching the terrain seen in rural areas such as the NT.</p>
-      </div>
-    </div>
+<p id="graphtext">This stacked bar chart shows the total area burnt in each land type across <span class="highlight">Australia</span> per year, measured in millions of hectares. Since roughly 1996 there has been a clear dominance of <span style="color: #1f77b4;">arid rangelands</span> and <span style="color: #aec7e8;">savanna woodlands</span> over <span style="color: #e7ba52;">temperate forests</span>, reflecting the terrain typical of rural areas such as the <span style="color: red;">Northern Territory</span>.</p>      </div>
+    
     <!-- end sec  -->
 
-    <!-- 4 small col section  -->
-    <div class="pure-g">
+<div class="container-row">
+  <div class="container">
+    <p id="graphtext">This bar chart shows how many forest areas have experienced unplanned burns across multiple seasons. Most areas have only burnt once, occurring 4,903 times, however repeat burning is far from rare. Notably, 85 forest areas have been burnt five times across the recorded seasons, raising concerns about long-term ecological recovery.</p>
+    <div id="repeats" class="vis-container"></div>
+  </div>
 
-      <div class="pure-u-1-4">
-        <div class="description description-left-left">
-          <p id="graphtext">This bar chart identifies the amount of times a region has been burnt. The data shows that most forests in <span class="highlight">Australia</span> have only been burnt once, but the amount for multiple times is by no means 0.</p>
-          </div>
-        </div>
-
-        <div class="pure-u-1-4">
-        <div id="repeats" class="vis-container">
-          </div>
-        </div>
-
-        <div class="pure-u-1-4">
-        <div class="description description-right-mid">
-          <p>Graph goes here.</p>
-          </div>
-        </div>
-
-        <div class="pure-u-1-4">
-        <div class="description description-right-right">
-          <p id="graphtext">This chart identifies the total percentage of which regions have been burnt multiple times, showing a concerningly high %.</p>
-          </div>
-        </div>
-        <!-- end sec  -->
-
-
-        <!-- one medium  -->
-      <div class="pure-g">
-        <div class="pure-u-2-3">
+  <div class="container">
           <div id="areachart" class="vis-container"></div>
-        </div>
-        <div class="pure-u-1-3">
-          <div class="description description-right">
-            <p id="graphtext">This stacked line chart compares the total amount of planned vs unplanned burns across fire seasons. The Black Summer experiencing a differnece of over 2000, as well as unplanned being higher in 3 of the 5 seasons shows just how unpredictable fires can be.</p>
-          </div>
-        </div>
-      </div>
-      <!-- end section  -->
+<p id="graphtext">This line chart compares the total number of <span style="color: #4a90d9;">planned</span> versus <span style="color: #c0390b;">unplanned</span> burns across fire seasons. In three of the five years recorded, unplanned fires outnumbered planned ones, reinforcing just how unpredictable and difficult to manage <span class="highlight">Australian</span> bushfires remain.</p>
+</div>
+</div>
+
+
 
 
 
@@ -168,43 +121,26 @@
 
 
     <!-- Sub section title and description -->
-    <div class="pure-g">
-      <div class="pure-u-1-1">
+     <div class="section">
+    <div class="container">
         <h2><span class="highlight">Australia</span> against the Globe</h2>
-        <p><span class="highlight">Australias</span> personal situation is bad enough, but how does that compare to the rest of the world.</p>
+        <p>The scale of <span class="highlight">Australia's</span> fire problem is clear. But how does it compare to the rest of the world?</p>
       </div>
-    </div>
+    
     <!-- end sec -->
 
-    <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-1-3">
-        <div class="description description-left">
-          <p id="graphtext">The charts shown here identify <span class="highlight">Australia</span> in comparison to the NASA At risk identified locations. The pie chart shows that in comparison to the top 10, <span class="highlight">Australia</span> takes up 14.7% of identified at risk locations - the highests amongst. </p>
-        </div>
-      </div>
-      <div class="pure-u-1-3">
-        <div id="donut" class="vis-container"></div>
-      </div>
-      <div class="pure-u-1-3" style="width: 31.5%;">
-        <div id="vis3" class="vis-container" style="margin-left: 15px;">
-          <p>Graph to be inserted here</p>
-        </div>
+  <div class="container">
+    <div id="donut" class="vis-container"></div>
+<p id="graphtext">(Click on a region to view its countries) These charts show the number of NASA-identified at-risk fire locations by region, and then by individual country within each region. <span style="color: #003f8a;">South Asia</span> accounts for the largest share with 20.6% of all locations, while <span class="highlight">Australia</span> has the smallest regional share at just 5.8%. However, when broken down by country, <span class="highlight">Australia</span> stands out dramatically, recording 900 locations, significantly more than the next highest, <span style="color: #003f8a;">Sri Lanka</span>, with 662. This suggests that while the <span class="highlight">Australian</span> region is small, fire risk is heavily concentrated within the country itself.</p>  </div>
 
-      </div>
-
-    </div>
-    <!-- end pure grid group -->
 
     <!-- pure grid group -->
-    <div class="pure-g">
-      <div class="pure-u-2-3">
+    <div class="container">
         <div id="wildfirescatter" class="vis-container"></div>
         <p id="subtext">(Enter a different country to view their position.)</p>
-      </div>
-      <div class="pure-u-1-3">
+      
         <div class="description description-right">
-          <p id="graphtext">This scatter plot, defaulted to highlight <span class="highlight">Australia</span> shows that against every country in the world in 2025 - <span class="highlight">Australia</span> recorded the 12th most total fires, aswell as the 4th highest average area lost. Therefore identifying that Asutralia has one of if not the most severe impact compared to any country.</p>
+          <p id="graphtext"> This scatter plot, defaulted to highlight <span class="highlight">Australia</span>, compares every country in the world on total fire count and average area burnt per fire in 2025. <span class="highlight">Australia</span> ranks 12th for total fires and 4th for average area lost per fire, confirming that while <span class="highlight">Australia</span> may not have the most fires globally, those it does experience are among the largest and most destructive on earth.</p>
         </div>
       </div>
 
@@ -214,32 +150,35 @@
     <!-- CONCLUSION BELOW -->
 
     <!-- Sub section title and description -->
-    <div class="pure-g">
+    <div class="container">
       <div class="pure-u-1-1">
         <h2>Conclusion</h2>
-        <p>Filler Text: The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo.</p>
+        <p>The data paints a complex picture. <span class="highlight">Australia</span>'s fires have always been severe, but the Black Summer of 2019-20 represented a watershed moment, burning tens of millions of hectares and forcing a national reckoning with how we manage fire. In the years since, the numbers have improved. Area burnt has dropped significantly, and the balance between planned and unplanned burns has shifted.
+Yet the underlying vulnerability remains. <span class="highlight">Australia</span> consistently ranks among the worst affected nations on earth, not just in frequency but in the sheer scale of individual fires. NASA data confirms that fire risk is heavily concentrated within <span class="highlight">Australia</span> compared to every other country in its region. Climate, terrain and land type all conspire to make this country uniquely exposed.
+The answer to whether we are getting better is cautiously yes, but the work is far from done. The data shows progress, but it also shows how quickly conditions can turn. Understanding where fires burn, what burns, and why is not just an academic exercise, it is the foundation of every decision that will determine how the next Black Summer unfolds.</p>
       </div>
     </div>
     <!-- end sec -->
 
 
-    <div class="pure-g">
+    <div class="container">
       <div class="pure-u-1-1">
         <h3>Links</h3>
         <p>
-          <ul>
-            <l id="subtext">https://www.kaggle.com/datasets/alitaqishah/wildfire-risk-dataset-2024-2025-7-regions</l>
-            <l id="subtext">https://www.kaggle.com/datasets/carlosparadis/fires-from-space-australia-and-new-zeland/discussion?sort=hotness</l>
-            <l id="subtext">https://www.agriculture.gov.au/abares/forestsaustralia/forest-data-maps-and-tools/data-by-topic/fire#area-of-forests-in-fire-area-by-forest-category-and-jurisdiction-20192020</l>
-            <l id="subtext">https://www.kaggle.com/datasets/johnathansmith7528/australian-annual-bushfire-area-19902020</l>
-            <l id="subtext">https://www.kaggle.com/datasets/willianoliveiragibin/wildfires/data</l>
-            <l id="subtext">https://www.kaggle.com/datasets/nafayunnoor/annual-number-of-wildfires-per-country-2012-2025</l>
-          </ul>
+          <ul id="subtext">
+  <li><a href="https://www.kaggle.com/datasets/alitaqishah/wildfire-risk-dataset-2024-2025-7-regions">Wildfire Risk Dataset 2024-2025, 7 Regions (Kaggle)</a></li>
+  <li><a href="https://www.kaggle.com/datasets/carlosparadis/fires-from-space-australia-and-new-zeland/discussion">Fires from Space, Australia and New Zealand (Kaggle)</a></li>
+  <li><a href="https://www.agriculture.gov.au/abares/forestsaustralia/forest-data-maps-and-tools/data-by-topic/fire#area-of-forests-in-fire-area-by-forest-category-and-jurisdiction-20192020">Area of Forests in Fire Area by Category and Jurisdiction 2019-20 (ABARES)</a></li>
+  <li><a href="https://www.kaggle.com/datasets/johnathansmith7528/australian-annual-bushfire-area-19902020">Australian Annual Bushfire Area 1990-2020 (Kaggle)</a></li>
+  <li><a href="https://www.kaggle.com/datasets/willianoliveiragibin/wildfires/data">Global Wildfires Dataset (Kaggle)</a></li>
+  <li><a href="https://www.kaggle.com/datasets/nafayunnoor/annual-number-of-wildfires-per-country-2012-2025">Annual Number of Wildfires per Country 2012-2025 (Kaggle)</a></li>
+</ul>
         </p>
       </div>
     </div>
     <!-- end sec -->
 
+    <p>© 2026, May, Jack Burton. Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
 
 
 
@@ -253,6 +192,9 @@
   <script src="js/viz5.js"></script>
   <script src="js/viz7.js"></script>
   <script src="js/viz8.js"></script>
+  <script src="js/viz9.js"></script>
+  <script src="js/viz10.js"></script>
+
 
 
 

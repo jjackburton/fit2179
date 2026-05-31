@@ -12,8 +12,16 @@
     "point": true
   },
   "encoding": {
-    "x": {"field": "Season", "type": "ordinal"},
+    "x": {"field": "Season", "type": "ordinal", "axis": {"labelAngle": 0}},
     "y": {"field": "count", "type": "quantitative"},
-    "color": {"field": "series", "type": "nominal"}
+    "color": {
+  "field": "series",
+  "type": "nominal",
+  "scale": {
+    "domain": ["Planned", "Unplanned"],
+    "range": ["#4a90d9", "#c0390b"]
+  }
+},
+    "tooltip": [{"field": "count", "type": "quantitative", "title":"Amount: "}]
   }
 }

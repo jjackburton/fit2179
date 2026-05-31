@@ -1,8 +1,9 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-    "title": "Total Bushfires by State per fire season",
-    "width": 800,
+    "title": "Total Bushfires by State per fire season - per 10000km2",
+    "width": "container",
     "height": 500,
+    
     "params": [
         {
             "name": "Season_selection",
@@ -47,8 +48,9 @@
         },
     {
         "data": {
-            "url": "https://raw.githubusercontent.com/jjackburton/fit2179/refs/heads/main/total_unplannedburns.csv",
+            "url": "data/total_unplannedburns.csv",
             "format": {"type": "csv"}
+            
         },
         "transform": [
             {
@@ -65,7 +67,10 @@
                 },
                 "as": "geo"
             },
-            {"filter": "datum.Season == Season_selection"}
+            {"filter": "datum.Season == Season_selection"},
+            {"calculate": "(datum.Total_Burns / datum.Area) * 10000", "as": "Burns_per_10000km2"},
+            {"calculate": "round(datum.Burns_per_10000km2 * 100) / 100", "as": "Burns_per_10000km2"}
+
         ],
 
         "mark": {
@@ -79,20 +84,21 @@
                 "type": "geojson"
             },
             "color": {
-                "field": "Total_Burns",
+                "field": "Burns_per_10000km2",
                 "type": "quantitative",
                 "title": "Total Burns",
                 "scale": {
-                    "scheme": "reds"
+                    "scheme": "reds",
+                    "domain": [0, 150]
                 },
                 "legend": {
                     "format": "d"
                 }
             },
             "tooltip": [
-                {"field": "State", "type": "nominal", "title": "State"},
-                {"field": "Total_Burns", "type": "quantitative", "title": "Total Burns"},
-                {"field": "Season", "type": "quantitative", "title": "Season"}
+                {"field": "State", "type": "nominal", "title": "State: "},
+                {"field": "Burns_per_10000km2", "type": "quantitative", "title": "Total Burns: "}
+                
             ]
         }
     }

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width":"container",
+  "title": {"text": "State Burn Rankings by Season", "frame": "bounds"},
+  "data": {"url": "data/total_unplannedburns.csv", "format": {"type": "csv", "parse": {"Total_Burns": "number"}}},
+  "transform": [{
+    "sort": [{"field": "Total_Burns", "order": "descending"}],
+    "window": [{"op": "rank", "as": "rank"}],
+    "groupby": ["Season"]
+  }],
+  "mark": {"type": "line", "orient": "vertical", "point":true},
+  "encoding": {
+    "x": {"field": "Season", "type": "ordinal", "axis": {"labelAngle": 0}},
+    "y": {"field": "rank", "type": "ordinal"},
+    "color": {
+      "field": "State", "type": "nominal",
+      "scale": {
+        "domain": ["Australian Capital Territory", "New South Wales", "Northern Territory", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia"],
+        "range": ["mediumseagreen","orange","green", "blue", "red", "purple", "pink", "yellow"]
+      }
+    },
+    "tooltip": [
+      {"field": "Total_Burns", "type": "quantitative", "title":"Total Burns: "}
+    ]
+  }
+}

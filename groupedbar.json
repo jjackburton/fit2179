@@ -1,0 +1,19 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": "Forest Types Burnt by Season",
+  "data": {"url": "data/total_forestcat.csv"},
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "Year", "type": "ordinal", "axis": {"labelAngle": 0}},
+    "y": {"field": "Count", "type": "quantitative"},
+    "color": {
+      "field": "Forest Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Native Forest", "Non Forest", "Commercial Plantation", "Other Forest"],
+        "range": ["#c0390b", "#4a90d9", "#2ecc71", "#f39c12"]
+      }
+    },
+    "xOffset": {"field": "Forest Type", "type": "nominal"}
+  }
+}

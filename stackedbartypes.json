@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "title": "Forest Types by Year",
+  "width": "container",
   "data": {"url": "data/annual_bf_area_types.csv"},
   "transform": [
     {
@@ -20,6 +21,7 @@
       "type": "quantitative",
       "title": "Amount"
     },
+    "tooltip":[{"field": "Number", "type": "quantitative", "title":"Number of Fires: "}],
     "color": {
       "field": "Forest_Type",
       "type": "nominal",
